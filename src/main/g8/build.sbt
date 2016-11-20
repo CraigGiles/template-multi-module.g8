@@ -83,6 +83,6 @@ lazy val backend = Project("backend", file("backend"))
 
 lazy val presentation = Project("presentation", file("presentation"))
   .settings(commonSettings: _*)
-  .enablePlugins(play.PlayScala)
+  .enablePlugins(play.sbt.Play)
   .dependsOn(backend % "compile->compile")
   .settings(libraryDependencies ++= Dependencies.presentation)

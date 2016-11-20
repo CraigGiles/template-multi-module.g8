@@ -1,3 +1,5 @@
+@import views.html.layout.default.partial._
+
 @(title: String)(content: Html)
 
 <!DOCTYPE html>
@@ -8,12 +10,12 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-@layout.default.partial.navbar()
+@navbar()
 
 <div class="body">
     @content
 </div>
 
-@layout.default.partial.footer()
+@footer()
 </body>
 </html>

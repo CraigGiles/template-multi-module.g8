@@ -23,8 +23,8 @@ object Dependencies {
       scalalikeJdbc)
 
   // Category Theory
-  def cats = "org.typelevel" %% "cats" % "0.7.2"
-  def scalatest(scope: String) = "org.scalatest" %% "scalatest" % "2.2.6" % scope
+  def cats = "org.typelevel" %% "cats" % "0.8.1"
+  def scalatest(scope: String) = "org.scalatest" %% "scalatest" % "3.0.0" % scope
   def scalalogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.4.0"
   def logback = "ch.qos.logback" % "logback-classic" % "1.1.2"
 

@@ -1,7 +1,7 @@
-# Project Name
+# Scala Multi-Module-Template
 Base template for generic multi-module scala application. This application has
 
-* A presentation module (Play Framework)
+* A presentation module (Play Framework 2.5)
 * Database migrations module (Flyway)
 * A backend module for domain logic
 
@@ -19,10 +19,12 @@ you can install and use giter8.
 g8 craiggiles/template-multi-module.g8
 ```
 
-## Usage
-TODO: Write usage instructions
-
 ## Contributing
+All pull requests are welcome! This was loosly based on some projects that I've
+been working on during my free time. If you would like to contribute back to
+this template, simply fork it and submit a pull request with your desired
+changes.
+
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`

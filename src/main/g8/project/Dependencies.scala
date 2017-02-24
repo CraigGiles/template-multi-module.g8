@@ -23,16 +23,16 @@ object Dependencies {
       scalalikeJdbc)
 
   // Category Theory
-  def cats = "org.typelevel" %% "cats" % "0.8.1"
-  def scalatest(scope: String) = "org.scalatest" %% "scalatest" % "3.0.0" % scope
-  def scalalogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.4.0"
-  def logback = "ch.qos.logback" % "logback-classic" % "1.1.2"
+  def cats = "org.typelevel" %% "cats" % "0.9.0"
+  def scalatest(scope: String) = "org.scalatest" %% "scalatest" % "3.0.1" % scope
+  def scalalogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0"
+  def logback = "ch.qos.logback" % "logback-classic" % "1.1.7"
 
   // Security
   def bcrypt = "org.mindrot" % "jbcrypt" % "0.3m"
 
   // Database
-  def flywayCore = "org.flywaydb" % "flyway-core" % "4.0"
+  def flywayCore = "org.flywaydb" % "flyway-core" % "4.1.1"
 
   // NOTE: plugins.sbt has the same version of mysql-connector-java.
   //       Please keep these two versions in sync.

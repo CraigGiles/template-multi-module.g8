@@ -68,7 +68,7 @@ lazy val rootProject = (project in file("."))
   .settings(
     name := "$name$",
     aggregate in update := false)
-  .aggregate(flyway, backend, presentation)
+  .aggregate(flyway, backend, playweb)
 
 lazy val flyway = (project in file("flyway"))
   .settings(commonSettings: _*)
@@ -81,8 +81,8 @@ lazy val backend = Project("backend", file("backend"))
     libraryDependencies ++= Dependencies.backend
   )
 
-lazy val presentation = Project("presentation", file("presentation"))
+lazy val playweb = Project("playweb", file("playweb"))
   .settings(commonSettings: _*)
   .enablePlugins(play.sbt.Play)
   .dependsOn(backend % "compile->compile")
-  .settings(libraryDependencies ++= Dependencies.presentation)
+  .settings(libraryDependencies ++= Dependencies.play)

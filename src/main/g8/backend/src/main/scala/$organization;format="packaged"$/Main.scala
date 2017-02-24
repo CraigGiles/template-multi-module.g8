@@ -1,6 +1,8 @@
 package $organization$
 
-object Main extends App with StackModule {
+object Main extends App {
+  import Stack._
+
   val (emptyStack, noneValue) = pop(List.empty[Int])
   println(s"Stack Without Values: $"$"$emptyStack, $"$"$noneValue")
 

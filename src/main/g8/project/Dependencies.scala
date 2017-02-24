@@ -15,7 +15,7 @@ object Dependencies {
       flywayCore,
       mysqlConnectorJava)
 
-  lazy val presentation = core ++ Seq()
+  lazy val play = core ++ Seq()
 
   lazy val backend = core ++ Seq(
       bcrypt,

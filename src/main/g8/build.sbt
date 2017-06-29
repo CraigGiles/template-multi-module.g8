@@ -39,6 +39,9 @@ val commonSettings = Seq(
     // Warn us when a function or value is defined but never used.
     "-Ywarn-unused",
 
+    // Kill the compile on warnings
+    "-Xfatal-warnings",
+
     // Provide more information about often misused language features
     // such as higher kinded types or implicitConversions.
     "-feature",
@@ -63,26 +66,37 @@ val commonSettings = Seq(
   )
 )
 
+addCommandAlias("migrate", ";flyway/flywayMigrate")
+
 lazy val rootProject = (project in file("."))
   .settings(commonSettings: _*)
   .settings(
     name := "$name$",
     aggregate in update := false)
-  .aggregate(flyway, backend, playweb)
+  .aggregate(domain, backend, finch, mysql)
 
 lazy val flyway = (project in file("flyway"))
   .settings(commonSettings: _*)
   .enablePlugins(FlywayPlugin)
   .settings(libraryDependencies ++= Dependencies.flyway)
 
+lazy val domain = Project("domain", file("domain"))
+  .settings(commonSettings: _*)
+  .settings(libraryDependencies ++= Dependencies.domain)
+
+lazy val mysql = Project("mysql", file("mysql"))
+  .settings(commonSettings: _*)
+  .dependsOn(domain % "test->test;test->compile;compile->compile")
+  .settings(libraryDependencies ++= Dependencies.mysql)
+
 lazy val backend = Project("backend", file("backend"))
   .settings(commonSettings: _*)
-  .settings(
-    libraryDependencies ++= Dependencies.backend
-  )
+  .dependsOn(
+    domain % "test->test;test->compile;compile->compile",
+    mysql % "test->test;test->compile;compile->compile")
+  .settings(libraryDependencies ++= Dependencies.backend)
 
-lazy val playweb = Project("playweb", file("playweb"))
+lazy val finch = Project("finch", file("finch"))
   .settings(commonSettings: _*)
-  .enablePlugins(play.sbt.Play)
-  .dependsOn(backend % "compile->compile")
-  .settings(libraryDependencies ++= Dependencies.play)
+  .dependsOn(backend % "test->test;test->compile;compile->compile")
+  .settings(libraryDependencies ++= Dependencies.finch)
